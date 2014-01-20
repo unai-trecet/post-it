@@ -1,0 +1,20 @@
+<%= render "shared/form_errors", obj: @post %>  
+
+<%= form_tag '/posts' do %>
+  <div class='control-group'>
+    <%= label_tag :title %>
+    <%= text_field_tag :title %>
+  </div>
+
+  <div class='control-group'>
+    <%= label_tag :url %>
+    <%= text_field_tag :url %>
+  </div>
+
+  <div class='control-group'>
+    <%= label_tag :description %>
+    <%= text_area_tag :description %>
+  </div>
+  </br>
+  <%= submit_tag 'Create post' %>
+<% end %>
