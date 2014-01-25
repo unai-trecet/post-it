@@ -16,4 +16,5 @@ class Comment < ActiveRecord::Base
   def down_vote
     self.votes.where(vote: false).size
   end
+
 end

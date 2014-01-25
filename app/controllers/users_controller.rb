@@ -43,12 +43,13 @@ class UsersController < ApplicationController
   end
 
   def set_user
-    @user = User.find(params[:id])
+    @user = User.find_by slug: params[:id]
+    #@user = User.find(params[:id])
   end
 
   def require_same_user
     if current_user != @user
-      flash[:erroe] = 'You are not alloewd to do that.'
+      flash[:error] = 'You are not alloewd to do that.'
       redirect_to root_path
     end
   end

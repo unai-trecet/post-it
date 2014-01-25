@@ -16,7 +16,7 @@
     <% Category.all.each do |cat| %>
       <li> <%= link_to cat.name, category_path(cat) %> </li>
     <% end %>
-    <% if logged_in? %> 
+    <% if logged_in? and current_user.admin? %> 
       <li class='divider'></li>
       <li>
         <%= link_to(new_category_path) do %>
@@ -55,7 +55,7 @@
       <li>
           <%= link_to logout_path do %>
             <i class='icon-circle-arrow-left'></i>
-            edit profile
+            logout
           <% end %>
       </li>
     </ul>

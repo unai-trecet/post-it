@@ -1,22 +1,5 @@
 <%= render 'shared/content_title', title: 'Blog of Blogs!!' %>
 
 <% @posts.each do |post| %>
-  <div class='span0 well text-center'>
-    <% if logged_in? %>
-      <%= link_to vote_post_path(post.id, vote: :true), method: :post do %>
-        <i class='icon-arrow-up'></i>
-      <% end %>
-      <br/>
-    <% end %>
-    
-    <%= post.total_votes %> votes    
-
-    <% if logged_in? %>
-      <br/>
-      <%= link_to vote_post_path(post.id, vote: :false), method: :post do %>
-        <i class='icon-arrow-down'></i>
-      <% end %>
-    <% end %>
-  </div>
   <%= render "post", post: post %>
 <% end %>
