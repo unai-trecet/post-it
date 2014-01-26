@@ -5,8 +5,11 @@ module ApplicationHelper
   end
 
   def display_datetime datetime
+    if logged_in? && !current_user.time_zone.blank?
+      datetime = datetime.in_time_zone(current_user.time_zone)
+    end
+
     datetime.nil? ? nil : datetime.strftime("%m%d%Y %l:%M%P %Z") 
-    # 12/26/2013 18:10pm
   end
 
 end

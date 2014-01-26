@@ -10,7 +10,32 @@ class User < ActiveRecord::Base
   before_save :generate_slug
 
   def generate_slug
-    self.slug = self.username.gsub(" ", "-").downcase
+    str = to_slug(self.username)
+    user = User.find_by slug: str
+    aux = 2
+
+    while user && user != self
+      str = append_suffix(str, aux)
+      user = User.find_by slug: str
+      aux += 1
+    end
+    
+    self.slug = str.downcase
+  end
+
+  def append_suffix slug, count
+    if slug.split('-').last.to_i != 0
+      return slug.split('-').slice(0...-1).join('-') + '-' + count.to_s
+    else
+      return slug + '-' + count.to_s
+    end
+  end
+
+  def to_slug name
+    str = name.strip
+    str.gsub! /\s*[^A-Za-z0-9]\s*/, '-'
+    str.gsub! /-+/, "-"
+    str
   end
 
   def to_param
