@@ -32,7 +32,7 @@ class SessionsController < ApplicationController
     access_denied if session[:two_factor].nil?
 
     if request.post?
-      user = User.find_by :pin param[:pin]
+      user = User.find_by(pin: param[:pin])
       if user
         session[:two_factor] = nil
         user.remove_pin
