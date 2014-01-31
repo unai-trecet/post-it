@@ -7,6 +7,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'bootstrap-sass', '~> 2.3.2.0'
 gem 'voteable-unai' #, '=0.0.1', path: "/home/unai/Dropbox/Curso_RoR/curso_rails/voteable-gem"
 gem 'sluggable-unai'
+gem 'twilio-ruby'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -14,6 +15,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'bcrypt-ruby', '~> 3.0.1'
+
 
 group :doc do
   gem 'sdoc', require: false
