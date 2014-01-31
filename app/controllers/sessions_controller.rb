@@ -38,7 +38,7 @@ class SessionsController < ApplicationController
         user.remove_pin
         login_user user
       else
-        flash[:error] = "SOmething is wrong with your pin number."
+        flash[:error] = "Something is wrong with your pin number."
         redirect_to pin_path
       end
     end
